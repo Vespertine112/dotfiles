@@ -1,5 +1,7 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
-╭─>[▓](c1)$os$username$sudo\
+╭─[█](c1)$os$username$sudo\
  [](bg:c2 fg:c1)$directory\
  [](fg:c2 bg:c3)$git_branch$git_status\
  [](fg:c3 bg:c4)\
@@ -17,15 +19,18 @@ format = """
  $scala\
  [](fg:c4 bg:c5)$memory_usage\
  [](fg:c5 bg:c6)$time\
- [ ](fg:c6)$status
-│
-╰─> \
+ [ ](fg:c6)$status $fill\
+ [](fg:c6)$cmd_duration\
+ [](bg:c6 fg:c4)$localip\
+ [](fg:c4)\
+            ─╮ 
+│    $fill   │ 
+╰─> \ 
 """
 
-# Build the right format at some future date lol
-# right_format = """
-# ╭─>[](c1)$os$username\
-# """
+# Build the right format at some future date, probably for time take / success
+right_format = "<─╯"
+
 
 # Disable the blank line at the start of the prompt
 add_newline = true
@@ -166,7 +171,8 @@ format = '[ $symbol ($version) ]($style)'
 
 [localip]
 ssh_only = false
-format = '@[$localipv4](bold red) '
+style='bg:c4 fg:c1'
+format = '[ IP:$localipv4 ]($style)'
 disabled = false
 
 [memory_usage]
@@ -185,10 +191,19 @@ map_symbol = true
 disabled = true
 
 [sudo]
-style = 'bold green'
+style = 'bg:c1'
 allow_windows=true
 symbol = ' 🧙 '
 disabled = false
+
+[fill]
+symbol = ' '
+style = ''
+
+[cmd_duration]
+min_time = 0
+style='fg:c1 bg:c6'
+format = '[ $duration ]($style)'
 
 [time]
 disabled = false
