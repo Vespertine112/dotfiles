@@ -15,3 +15,5 @@ dot-files configrepo (endeavour os / general)
 [Windows] Add to powershell profile in ~/Documents/WindowsPowershell/profile.ps1
 -> Invoke-Expression (&starship init powershell)
 
+# TODO:
+-> Implement polybar weather and better themeing
