@@ -38,6 +38,9 @@ add_newline = true
 # Set 'foo' as custom color palette
 palette = 'space'
 
+command_timeout = 10000
+
+
 [palettes.nordic]
 c1 = '#000000'
 c2 = '#2A272A'
