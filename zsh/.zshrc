@@ -127,8 +127,6 @@ bindkey "^[[3~" delete-char
 # Bind path 
 export PATH=$HOME/.config/rofi/scripts:$PATH # Rofi
 
-~/.config/rofi/scripts/
-
 # Boot starship
 eval "$(starship init zsh)"
 
