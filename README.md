@@ -1,6 +1,8 @@
 # dotfiles
 dot-files configrepo (endeavour os / general) 
 
+Major credit to Yoru / rxyhn
+
 # Starship terminal
 [Linux] ln to ~/.config then add to .zshrc
 -> eval "$(starship init zsh)" 
@@ -23,9 +25,8 @@ dot-files configrepo (endeavour os / general)
 -> zsh for shell
 
 # Notes
--> use xrandr for refresh rates 
--> If using polybar themes, you need to install mpd
--> Need ttf-icomoon-feather for polybar!
+-> Fonts are stored in misc/fonts, need to be installed to ~/.fonts then fc-cache -fv
+
 
 # TODO:
 -> Implement polybar weather and better themeing
