@@ -3,7 +3,7 @@
 format = """
 ╭─[█](c1)$os$username$sudo\
  [](bg:c2 fg:c1)$directory\
- [](fg:c2 bg:c3)$git_branch$git_status\
+ [](fg:c2 bg:c3)$git_branch\
  [](fg:c3 bg:c4)\
  $c\
  $elixir\
@@ -19,7 +19,7 @@ format = """
  $scala\
  [](fg:c4 bg:c5)$memory_usage\
  [](fg:c5 bg:c6)$time\
- [ ](fg:c6)$status $fill\
+ [ ](fg:c6)$fill\
  [](fg:c6)$cmd_duration\
  [](bg:c6 fg:c4)$localip\
  [](fg:c4)\
