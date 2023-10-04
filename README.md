@@ -26,6 +26,7 @@ Major credit to Yoru / rxyhn
 
 # Notes
 -> Fonts are stored in misc/fonts, need to be installed to ~/.fonts then fc-cache -fv
+-> make xprofile executable and symlink to home dir
 
 
 # TODO:
