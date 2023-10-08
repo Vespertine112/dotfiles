@@ -21,7 +21,7 @@ format = """
  [](fg:c5 bg:c6)$time\
  [ ](fg:c6)$fill\
  [](fg:c6)$cmd_duration\
- [](bg:c6 fg:c4)$localip\
+ [](bg:c6 fg:c4)$python$ip\
  [](fg:c4)\
             ─╮ 
 │    $fill   │ 
@@ -174,7 +174,7 @@ style = "bg:c4"
 format = '[ $symbol ($version) ]($style)'
 
 [localip]
-ssh_only = false
+ssh_only = true
 style='bg:c4 fg:c1'
 format = '[ IP:$localipv4 ]($style)'
 disabled = false
@@ -197,7 +197,7 @@ disabled = true
 [sudo]
 style = 'bg:c1'
 allow_windows=true
-symbol = ' 🧙 '
+symbol = '🧙'
 disabled = false
 
 [fill]
@@ -214,3 +214,10 @@ disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:c6 fg:c1"
 format = '[ $time ]($style)'
+
+[python]
+# Virtual environment symbol (optional)
+symbol = "🐍"
+# Format for displaying the virtual environment
+style='bg:c4 fg:c1'
+format = "[$symbol$virtualenv]($style)"

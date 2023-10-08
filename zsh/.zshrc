@@ -126,6 +126,7 @@ alias zshconfig="code ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
 alias py="python3"
 alias rofi="/home/vespertine/.config/rofi/scripts/launcher_t6"
+alias hiber="systemctl hibernate"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -134,6 +135,7 @@ bindkey "^[[3~" delete-char
 
 # Bind path 
 export PATH=$HOME/.config/rofi/scripts:$PATH # Rofi
+export PATH=$HOME/.local/bin:$PATH #pipx
 
 # Boot starship
 eval "$(starship init zsh)"
