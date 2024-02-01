@@ -98,6 +98,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0'
+
 
 # User configuration
 
@@ -176,3 +178,5 @@ zle -N zle-line-init
 
 # Fix default standard for c++
 export CXXFLAGS="-std=c++20"
+export TERM="konsole-256color"
+
