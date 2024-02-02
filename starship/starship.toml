@@ -21,7 +21,7 @@ format = """
  [](fg:c5 bg:c6)$time\
  [ ](fg:c6)$fill\
  [](fg:c6)$cmd_duration\
- [](bg:c6 fg:c4)$python$ip\
+ [](bg:c6 fg:c4)$python$localip\
  [](fg:c4)\
             ─╮ 
 │    $fill   │ 
@@ -40,8 +40,9 @@ palette = 'space'
 
 command_timeout = 10000
 
-
 [palettes.nordic]
+warning = '#FC1313'
+
 c1 = '#000000'
 c2 = '#2A272A'
 c3 = '#4B4A54'
@@ -50,6 +51,8 @@ c5 = '#82A0AA'
 c6 = '#A3CFCD'
 
 [palettes.space]
+warning = '#FC1313'
+
 c1 = '#210535'
 c2 = '#430d4b'
 c3 = '#7b337d'
@@ -176,7 +179,7 @@ format = '[ $symbol ($version) ]($style)'
 [localip]
 ssh_only = true
 style='bg:c4 fg:c1'
-format = '[ IP:$localipv4 ]($style)'
+format = '[SSH $localipv4 ]($style)'
 disabled = false
 
 [memory_usage]
