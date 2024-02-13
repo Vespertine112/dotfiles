@@ -92,12 +92,14 @@ plugins=(
     git
     history-substring-search
     colored-man-pages
-    zsh-autosuggestions
+    # zsh-autosuggestions
     zsh-syntax-highlighting
+    zsh-interactive-cd
     zsh-z
 )
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0'
 
 

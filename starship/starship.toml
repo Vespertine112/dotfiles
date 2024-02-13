@@ -104,7 +104,7 @@ truncation_symbol = "…/"
 # "Important 󰈙 " = " 󰈙 "
 
 [c]
-symbol = " "
+symbol = " " 
 style = "bg:c4"
 format = '[ $symbol ($version) ]($style)'
 
