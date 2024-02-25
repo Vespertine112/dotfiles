@@ -12,3 +12,4 @@ return {
 		{"<C-e>", function() require("harpoon").ui:toggle_quick_menu(harpoon:list()) end}
 	}
 }
+

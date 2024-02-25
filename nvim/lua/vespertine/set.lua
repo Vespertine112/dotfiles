@@ -12,6 +12,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
+
 -- Setup option so that undo tree will have access to massive undo histories
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/.undodir"
 
@@ -29,5 +30,4 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 
--- SET THE MAP LEADER!
-vim.g.mapleader = " "
+

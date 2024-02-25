@@ -1,2 +1,3 @@
-require("vespertine.remap")
 require("vespertine.set")
+require("vespertine.remap")
+
