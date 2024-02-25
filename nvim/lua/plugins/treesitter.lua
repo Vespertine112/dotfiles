@@ -13,6 +13,7 @@ local M = {
 				"query", 
 				"elixir", 
 				"heex", 
+				"typescript",
 				"javascript", 
 				"html" 
 			},

@@ -9,7 +9,10 @@ return {
 		{ '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = "Help Tags" },
 		{
 			'<leader>ps',
-			"<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep > ') })<CR>",
+			function ()
+			local ts = require("telescope.builtin")
+				ts.grep_string({ search = vim.fn.input("Grep > ")}) 
+			end,
 			desc = "Grep String"
 		}
 	},
