@@ -1,3 +1,4 @@
+-- Manages Git!
 return {
 	"tpope/vim-fugitive", 
 	lazy = true,
