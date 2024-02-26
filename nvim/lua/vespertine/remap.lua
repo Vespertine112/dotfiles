@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 
 -- Misc key setups
 vim.keymap.set("n", "<leader>pv", ":Oil<CR>")
-vim.keymap.set('', '<C-S>', ':w<CR>', {noremap = true})
+vim.keymap.set('', '<C-S>', ':w<CR>')
 
 -- Handle line movement up and down
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -39,6 +39,7 @@ vim.keymap.set("n", "<C-Right>", "e")
 vim.keymap.set("n", "<C-Left>", "b")
 vim.keymap.set("v", "<C-Right>", "e")
 vim.keymap.set("v", "<C-Left>", "b")
+vim.keymap.set("i", "<C-Right>", "<Esc>ea")
 
 -- Word Deletes baby! Good ref: https://stackoverflow.com/questions/1373841/vim-deleting-backward-tricks
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")

@@ -1,5 +1,5 @@
 return {
-	'nvim-telescope/telescope.nvim', 
+	'nvim-telescope/telescope.nvim',
 	tag = '0.1.5',
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	keys = {
@@ -11,7 +11,7 @@ return {
 			'<leader>ps',
 			function ()
 			local ts = require("telescope.builtin")
-				ts.grep_string({ search = vim.fn.input("Grep > ")}) 
+				ts.grep_string({ search = vim.fn.input("Grep > ")})
 			end,
 			desc = "Grep String"
 		}
