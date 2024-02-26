@@ -45,3 +45,6 @@ vim.keymap.set("i", "<C-Right>", "<Esc>ea")
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 vim.keymap.set("i", "<C-H>", "<C-o>dvb")
 
+-- SCROLL_WHEEL_KEYMAPS:
+vim.keymap.set({ 'n', 'x' }, '<ScrollWheelUp>', "<Cmd>lua Scroll('<ScrollWheelUp>')<CR>")
+vim.keymap.set({ 'n', 'x' }, '<ScrollWheelDown>', "<Cmd>lua Scroll('<ScrollWheelDown>')<CR>")
