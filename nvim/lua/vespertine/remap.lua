@@ -43,7 +43,7 @@ vim.keymap.set("i", "<C-Right>", "<Esc>ea")
 
 -- Word Deletes baby! Good ref: https://stackoverflow.com/questions/1373841/vim-deleting-backward-tricks
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")
-vim.keymap.set("i", "<C-H>", "<C-o>dvb")
+vim.keymap.set("i", "<C-H>", "<C-o>db")
 
 -- SCROLL_WHEEL_KEYMAPS:
 vim.keymap.set({ 'n', 'x' }, '<ScrollWheelUp>', "<Cmd>lua Scroll('<ScrollWheelUp>')<CR>")
