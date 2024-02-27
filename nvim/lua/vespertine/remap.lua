@@ -5,7 +5,8 @@ vim.g.mapleader = " "
 
 -- Misc key setups
 vim.keymap.set("n", "<leader>pv", ":Oil<CR>")
-vim.keymap.set('', '<C-S>', ':w<CR>')
+vim.keymap.set('n', '<C-S>', ':w<CR>')
+vim.keymap.set('i', '<C-S>', '<Esc>:w<CR>a')
 
 -- Handle line movement up and down
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

@@ -33,14 +33,14 @@ return {
                 javascript = {prettier},
                 typescript = {prettier},
                 json = {prettier},
-                html = {htmlbeautifier},
+                html = {prettier},
                 css = {prettier},
                 graphql = {prettier},
                 markdown = {prettier},
                 yaml = {prettier},
                 yml = {prettier},
                 vue = {prettier},
-                svelte = {htmlbeautifier},
+                svelte = {prettier},
 
                 -- Use the special "*" filetype for defining formatter configurations on
                 -- any filetype
