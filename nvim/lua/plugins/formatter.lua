@@ -40,7 +40,7 @@ return {
                 yaml = {prettier},
                 yml = {prettier},
                 vue = {prettier},
-                svelte = {prettier},
+                svelte = {htmlbeautifier},
 
                 -- Use the special "*" filetype for defining formatter configurations on
                 -- any filetype

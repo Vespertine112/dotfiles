@@ -1,25 +1,27 @@
--- Treesitter config. Add languages below for indent & highlighting support 
+-- Treesitter config. Add languages below for indent & highlighting support
 local M = {
     "nvim-treesitter/nvim-treesitter",
     config = function()
 	    local configs = require("nvim-treesitter.configs")
 
 	    configs.setup({
-		    ensure_installed = { 
+		    ensure_installed = {
 				"c",
 				"lua",
-				"vim", 
-				"vimdoc", 
-				"query", 
-				"elixir", 
-				"heex", 
+				"vim",
+				"vimdoc",
+				"query",
+				"elixir",
+				"heex",
 				"typescript",
-				"javascript", 
-				"html" 
+				"javascript",
+				"html",
+                "svelte"
 			},
 		    sync_install = false,
 		    highlight = { enable = true },
-		    indent = { enable = true },  
+		    indent = { enable = true },
+            auto_install = true
 	    })
     end,
     build = function()
