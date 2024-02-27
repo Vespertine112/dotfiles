@@ -1,21 +1,21 @@
 return {
-  'stevearc/oil.nvim',
-  opts = {
+    'stevearc/oil.nvim',
+    opts = {
         default_file_explorer = true,
         columns = {
             "icon"
         },
         view_options = {
-                show_hidden = true,
+            show_hidden = true,
         },
         experimental_watch_for_changes = false,
         keymaps = {
             ["g?"] = "actions.show_help",
             ["<CR>"] = "actions.select",
-            ["<C-s>"] = "actions.select_vsplit",
             ["<C-h>"] = "actions.select_split",
             ["<C-t>"] = "actions.select_tab",
             ["<C-p>"] = "actions.preview",
+            ["<C-s>"] = false,
             ["<C-c>"] = "actions.close",
             ["<C-l>"] = "actions.refresh",
             ["-"] = "actions.parent",
@@ -42,6 +42,9 @@ return {
             win_options = {
                 winblend = 0,
             },
+        },
+        keymaps_help = {
+            border = "rounded",
         },
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },

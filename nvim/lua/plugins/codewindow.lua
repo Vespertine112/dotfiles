@@ -8,7 +8,7 @@ return {
                 'help',
                 'oil'
             },
-            minimap_width = 15,
+            minimap_width = 12,
         })
 
         codewindow.apply_default_keybinds()
