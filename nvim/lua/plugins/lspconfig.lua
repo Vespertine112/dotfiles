@@ -14,7 +14,6 @@ return {
 
         lsp_zero.on_attach(function(client, bufnr)
             lsp_zero.default_keymaps({ buffer = bufnr })
-            lsp_zero.buffer_autoformat()
         end)
 
         lsp_zero.set_sign_icons({
