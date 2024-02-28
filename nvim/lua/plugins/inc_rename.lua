@@ -13,6 +13,6 @@ return {
         )
     end,
     keys = {
-        {"<leader>rn", ":Inc "}
+        {"<leader>rn", ":Inc ", desc = "Incremental Rename"}
     }
 }

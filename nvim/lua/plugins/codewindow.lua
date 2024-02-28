@@ -5,10 +5,20 @@ return {
         codewindow.setup({
             auto_enable = true,
             exclude_filetypes = {
-                'help',
-                'oil'
+                "help",
+                "alpha",
+                "dashboard",
+                "neo-tree",
+                "Trouble",
+                "trouble",
+                "lazy",
+                "mason",
+                "notify",
+                "toggleterm",
+                "lazyterm",
+                "oil",
             },
-            minimap_width = 12,
+            minimap_width = math.floor(vim.o.columns * 0.05),
         })
 
         codewindow.apply_default_keybinds()

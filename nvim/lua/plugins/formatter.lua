@@ -18,7 +18,6 @@ return {
                 try_node_modules = true,
             }
         end
-        local htmlbeautifier = require("formatter.defaults.htmlbeautifier")
 
         -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
         require("formatter").setup {
