@@ -137,7 +137,7 @@ alias hiber="systemctl hibernate"
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 bindkey "^[[3~" delete-char
 
-# Bind path 
+# Bind path
 export PATH=$HOME/.config/rofi/scripts:$PATH # Rofi
 export PATH=$HOME/.local/bin:$PATH #pipx
 
@@ -182,4 +182,5 @@ zle -N zle-line-init
 export CXXFLAGS="-std=c++20"
 export TERM="konsole-256color"
 export FZF_CACHE=$HOME/.fzf-cache
-
+export EDITOR=nvim
+export VISUAL=nvim
