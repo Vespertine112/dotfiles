@@ -8,7 +8,7 @@ return {
         view_options = {
             show_hidden = true,
         },
-        experimental_watch_for_changes = false,
+        experimental_watch_for_changes = true,
         keymaps = {
             ["g?"] = "actions.show_help",
             ["<CR>"] = "actions.select",
