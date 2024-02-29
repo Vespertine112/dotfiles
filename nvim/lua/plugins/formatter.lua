@@ -9,6 +9,7 @@ return {
                 exe = "prettier",
                 args = {
                     "--tab-width 4",
+                    "--print-width 120",
                     "--stdin-filepath",
                     util.escape_path(util.get_current_buffer_file_path()),
                     "--parser",
