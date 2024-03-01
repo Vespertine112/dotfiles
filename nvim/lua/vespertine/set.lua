@@ -14,7 +14,7 @@ vim.opt.backup = false
 
 -- Setup option so that undo tree will have access to massive undo histories
 if os.getenv("HOME") then
-    vim.opt.undodir = os.getenv("HOME") .. "/.vim/.undodir"
+	vim.opt.undodir = os.getenv("HOME") .. "/.vim/.undodir"
 end
 
 vim.opt.hlsearch = false
@@ -29,3 +29,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.textwidth = 80
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
