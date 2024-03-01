@@ -4,6 +4,6 @@ return {
 	lazy = false,
 	priority = 1000,
 	keys = {
-		{"<leader>u", vim.cmd.UndotreeToggle}
-	}
+		{ "<leader>u", vim.cmd.UndotreeToggle, desc = "Toggle undo tree" },
+	},
 }
