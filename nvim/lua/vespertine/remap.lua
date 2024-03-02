@@ -5,8 +5,8 @@ vim.g.mapleader = " "
 
 -- Misc key setups
 vim.keymap.set("n", "<leader>pv", ":Oil<CR>")
-vim.keymap.set('n', '<C-S>', ':w<CR>')
-vim.keymap.set('i', '<C-S>', '<Esc>:w<CR>a')
+vim.keymap.set("n", "<C-S>", ":w<CR>")
+vim.keymap.set("i", "<C-S>", "<Esc>:w<CR>a")
 
 -- Handle line movement up and down
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -20,7 +20,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Yanks into the system clipboard so it can be pasted out of nvim
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Quick fix navigations
@@ -45,7 +45,8 @@ vim.keymap.set("i", "<C-Right>", "<Esc>ea")
 -- Word Deletes baby! Good ref: https://stackoverflow.com/questions/1373841/vim-deleting-backward-tricks
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 vim.keymap.set("i", "<C-H>", "<C-o>db")
+vim.keymap.set("i", "<C-BS>", "<C-o>db")
 
 -- SCROLL_WHEEL_KEYMAPS:
-vim.keymap.set({ 'n', 'x' }, '<ScrollWheelUp>', "<Cmd>lua Scroll('<ScrollWheelUp>')<CR>")
-vim.keymap.set({ 'n', 'x' }, '<ScrollWheelDown>', "<Cmd>lua Scroll('<ScrollWheelDown>')<CR>")
+vim.keymap.set({ "n", "x" }, "<ScrollWheelUp>", "<Cmd>lua Scroll('<ScrollWheelUp>')<CR>")
+vim.keymap.set({ "n", "x" }, "<ScrollWheelDown>", "<Cmd>lua Scroll('<ScrollWheelDown>')<CR>")
