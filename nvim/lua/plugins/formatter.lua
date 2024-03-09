@@ -1,6 +1,6 @@
 return {
 	"mhartington/formatter.nvim",
-	cmd = { "FormatWrite" },
+	cmd = { "FormatWrite", "Format" },
 	event = { "BufWritePost" },
 	config = function()
 		local util = require("formatter.util")
