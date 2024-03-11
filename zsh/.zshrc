@@ -95,7 +95,6 @@ plugins=(
     # zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-interactive-cd
-    zsh-z
 )
 
 source $ZSH/oh-my-zsh.sh
