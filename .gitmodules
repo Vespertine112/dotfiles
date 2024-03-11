@@ -1,0 +1,3 @@
+[submodule "Boru"]
+	path = Boru
+	url = git@github.com:Vespertine112/Boru.git
