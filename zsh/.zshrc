@@ -21,6 +21,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+#Load my fzf config
+# export FZF_DEFAULT_COMMMAND=fd --type f --exclude .git
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#262626 --color=hl:#5f87af,hl+:#5fd7ff,info:#afaf87,marker:#87ff00 --color=prompt:#d7005f,spinner:#af5fff,pointer:#af5fff,header:#87afaf --color=border:#262626,label:#aeaeae,query:#d9d9d9 --border="rounded" --border-label="Find" --border-label-pos="0" --preview "bat --color=always --style="numbers" {}" --preview-window="border-rounded" --prompt=">" --marker=">" --pointer="=" --separator="─" --scrollbar=""'
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -88,13 +92,13 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    fzf
     git
     history-substring-search
     colored-man-pages
-    # zsh-autosuggestions
+    zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-interactive-cd
+	fzf
 )
 
 source $ZSH/oh-my-zsh.sh
