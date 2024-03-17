@@ -183,7 +183,7 @@ zle -N zle-line-init
 
 # Fix default standard for c++
 export CXXFLAGS="-std=c++20"
-export TERM="konsole-256color"
+export TERM="xterm-256color"
 export FZF_CACHE=$HOME/.fzf-cache
 export EDITOR=nvim
 export VISUAL=nvim
