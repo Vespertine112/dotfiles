@@ -1,0 +1,14 @@
+os:
+    edit: "floatterm"
+
+gui:
+    theme:
+        selectedLineBgColor:
+            - underline
+        selectedRangeBgColor:
+            - underline
+
+git:
+    paging:
+        colorArg: never
+        pager: delta --paging=never

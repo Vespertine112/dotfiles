@@ -15,6 +15,7 @@ aur_packages=(
 	nemo
 	downgrade
 	discord
+	git-delta
 )
 
 yay -S --noconfirm $(printf "%s " "${aur_packages[@]}")
@@ -39,6 +40,7 @@ ln -s ~/Extensible/dotfiles/zsh/.zshrc ~/
 ln -s ~/Extensible/dotfiles/alacritty/ ~/.config/
 ln -s ~/Extensible/dotfiles/btop/ ~/.config/
 ln -s ~/Extensible/dotfiles/starship/starship.toml ~/.config/
+ln -s ~/Extensible/dotfiles/lazygit/ ~/.config/
 
 # Setup Zsh
 chsh -s $(which zsh)
