@@ -1,5 +1,23 @@
 # Install nessecary AUR packs
-yay -S brave-bin compfy neovim btop alacritty starship zsh npm xclip lazygit 
+aur_packages=(
+    brave-bin
+    compfy
+    neovim
+    btop
+    alacritty
+    starship
+    zsh
+    npm
+    xclip
+    lazygit
+	flameshot
+	tmux
+	nemo
+	downgrade
+	discord
+)
+
+yay -S --noconfirm $(printf "%s " "${aur_packages[@]}")
 
 # Install fonts
 tar -xvf ./assets/JetBrainsMono.tar.xz -C ./assets/
@@ -26,9 +44,40 @@ ln -s ~/Extensible/dotfiles/starship/starship.toml ~/.config/
 chsh -s $(which zsh)
 
 # ==== AWESOME INSTALLATION & CONFIG =====
-yay -S awesome-git
+awesome_config_packages=(
+    awesome-git
+    rofi
+    acpi
+    acpid
+    acpi_call
+    upower
+    lxappearance-gtk3
+    jq
+    inotify-tools
+    polkit-gnome
+    xdotool
+    xclip
+    gpick
+    ffmpeg
+    blueman
+    redshift
+    pipewire
+    pipewire-alsa
+    pipewire-pulse
+    alsa-utils
+    brightnessctl
+    feh
+    maim
+    mpv
+    mpd
+    mpc
+    mpdris2
+    python-mutagen
+    ncmpcpp
+    playerctl
+)
 
-yay -Sy rofi acpi acpid acpi_call upower lxappearance-gtk3 jq inotify-tools polkit-gnome xdotool xclip gpick ffmpeg blueman redshift pipewire pipewire-alsa pipewire-pulse alsa-utils brightnessctl feh maim mpv mpd mpc mpdris2 python-mutagen ncmpcpp playerctl --needed
+yay -S --noconfirm $(printf "%s " "${awesome_config_packages[@]}")
 
 systemctl --user enable mpd.service
 systemctl --user start mpd.service
