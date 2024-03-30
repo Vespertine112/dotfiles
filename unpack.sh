@@ -20,6 +20,10 @@ aur_packages=(
 	downgrade
 	discord
 	git-delta
+	nemo
+	# Optional
+	obsidian
+	variety
 )
 
 yay -S --noconfirm $(printf "%s " "${aur_packages[@]}")
@@ -50,6 +54,8 @@ ln -s ~/Extensible/dotfiles/btop/ ~/.config/
 ln -s ~/Extensible/dotfiles/starship/starship.toml ~/.config/
 ln -s ~/Extensible/dotfiles/lazygit/ ~/.config/
 ln -s ~/Extensible/dotfiles/nvim/ ~/.config
+ln -s ~/Extensible/dotfiles/compfy/ ~/.config/
+ln -s ~/Extensible/dotfiles/X11/.Xresources ~/
 
 # ==== AWESOME INSTALLATION & CONFIG =====
 awesome_config_packages=(
