@@ -93,7 +93,7 @@ systemctl --user start mpd.service
 git submodule update --init --recursive
 
 # Copies awesomewm & other configs 
-ln -s ./Boru/config/* ~/.config/ 
+ln -sf ~/Extensible/dotfiles/Boru/config/* ~/.config/ 
 
 sudo cp -r ./Boru/misc/fonts/* /usr/share/fonts/myfonts/
 fc-cache -fv
