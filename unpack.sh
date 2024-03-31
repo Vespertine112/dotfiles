@@ -21,7 +21,6 @@ aur_packages=(
 	discord
 	git-delta
 	nemo
-	# Optional
 	obsidian
 	variety
 )
