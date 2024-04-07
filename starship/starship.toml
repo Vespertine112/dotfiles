@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-╭─[█](c1)$os$username$sudo\
+╭─[](c1)$os$username$sudo\
  [](bg:c2 fg:c1)$directory\
  [](fg:c2 bg:c3)$git_branch\
  [](fg:c3 bg:c4)\
@@ -22,7 +22,7 @@ format = """
  [ ](fg:c6)$fill\
  [](fg:c6)$cmd_duration\
  [](bg:c6 fg:c4)$python$localip\
- [](fg:c4)\
+ [\ue0b4](fg:c4)\
             ─╮ 
 │    $fill   │ 
 ╰─> \ 
@@ -30,7 +30,6 @@ format = """
 
 # Build the right format at some future date, probably for time take / success
 right_format = "<─╯"
-
 
 # Disable the blank line at the start of the prompt
 add_newline = true
