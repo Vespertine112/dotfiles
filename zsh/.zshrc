@@ -72,6 +72,8 @@ alias py="python3"
 alias rofi="/home/vespertine/.config/rofi/scripts/launcher_t6"
 alias hiber="systemctl hibernate"
 alias lg="lazygit"
+alias fman="compgen -c | fzf | xargs man"
+alias nukemodules="find . -name 'node_modules' -type d | xargs du -sh | sort -hr | fzf -m --header \"Select which to delete\" --preview 'cat $(dirname {})/package.json' | awk '{print $2}' | xargs -r rm -rf " 
 
 bindkey "^[[3~" delete-char
 
@@ -123,3 +125,5 @@ export FZF_CACHE=$HOME/.fzf-cache
 export EDITOR=nvim
 export VISUAL=nvim
 
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/

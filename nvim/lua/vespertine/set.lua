@@ -32,3 +32,5 @@ vim.opt.textwidth = 160
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.opt.guifont = { "JetBrainsMono Nerd Font Mono", ":12" }
