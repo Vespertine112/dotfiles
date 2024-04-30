@@ -13,3 +13,4 @@ Invoke-Expression (&starship init powershell)
 Enable-TransientPrompt
 
 New-Alias "gs" gitStatus
+New-Alias "lg" lazygit
