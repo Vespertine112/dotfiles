@@ -26,6 +26,7 @@ local M = {
 		})
 	end,
 	build = function()
+		require("nvim-treesitter.install").compilers = { "zig", "clang" }
 		require("nvim-treesitter.install").update({ with_sync = true })()
 	end,
 }

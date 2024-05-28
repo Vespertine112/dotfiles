@@ -1,5 +1,5 @@
 os:
-    edit: "floatterm"
+    editPreset: "nvim"
 
 gui:
     theme:
@@ -7,6 +7,7 @@ gui:
             - underline
         selectedRangeBgColor:
             - underline
+    nerdFontsVersion: "3"
 
 git:
     paging:
