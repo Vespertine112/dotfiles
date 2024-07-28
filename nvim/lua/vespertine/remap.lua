@@ -47,9 +47,4 @@ vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 vim.keymap.set("i", "<C-H>", "<C-o>db")
 vim.keymap.set("i", "<C-BS>", "<C-o>db")
 
--- SCROLL_WHEEL_KEYMAPS:
-vim.keymap.set({ "n", "x" }, "<ScrollWheelUp>", "<Cmd>lua Scroll('<ScrollWheelUp>')<CR>")
-vim.keymap.set({ "n", "x" }, "<ScrollWheelDown>", "<Cmd>lua Scroll('<ScrollWheelDown>')<CR>")
-
-
 vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")

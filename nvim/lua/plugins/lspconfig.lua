@@ -1,3 +1,5 @@
+-- Provide quick start configs for NVIM LSP
+-- Essentialy Lsps managed by mason will be automatically setup with quickstart
 return {
 	"neovim/nvim-lspconfig",
 	cmd = { "LspInfo", "LspInstall", "LspStart" },

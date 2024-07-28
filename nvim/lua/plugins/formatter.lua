@@ -1,3 +1,4 @@
+-- In-house formatting
 return {
 	"mhartington/formatter.nvim",
 	cmd = { "FormatWrite", "Format" },

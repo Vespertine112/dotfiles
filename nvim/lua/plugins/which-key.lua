@@ -1,3 +1,4 @@
+-- helps with unfinished commands
 return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",

@@ -1,3 +1,4 @@
+-- Comment functionality
 return {
 	"numToStr/Comment.nvim",
 	opts = {
