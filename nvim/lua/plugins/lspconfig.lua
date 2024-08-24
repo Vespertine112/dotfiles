@@ -18,6 +18,9 @@ return {
 			vim.keymap.set("n", "<leader>ca", function()
 				vim.lsp.buf.code_action()
 			end)
+			vim.keymap.set("n", "<leader>ru", function()
+				vim.lsp.buf.references()
+			end)
 		end)
 
 		lsp_zero.set_sign_icons({
