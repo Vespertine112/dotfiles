@@ -17,7 +17,10 @@ return {
 			lsp_zero.default_keymaps({ buffer = bufnr })
 			vim.keymap.set("n", "<leader>ca", function()
 				vim.lsp.buf.code_action()
-			end)
+			end, { desc = "Lsp Code Actions" })
+			vim.keymap.set("n", "<leader>fr", function()
+				vim.lsp.buf.references()
+			end, { desc = "Lsp Find References" })
 		end)
 
 		lsp_zero.set_sign_icons({

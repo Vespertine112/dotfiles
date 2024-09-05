@@ -10,8 +10,9 @@ return {
 				exe = "prettier",
 				args = {
 					"--tab-width 4",
-					"--print-width 120",
+					"--print-width 180",
 					"--stdin-filepath",
+					"--use-tabs",
 					util.escape_path(util.get_current_buffer_file_path()),
 					"--parser",
 					parser,
@@ -36,6 +37,7 @@ return {
 				json = { prettier },
 				html = { prettier },
 				css = { prettier },
+				scss = { prettier },
 				graphql = { prettier },
 				markdown = { prettier },
 				yaml = { prettier },
