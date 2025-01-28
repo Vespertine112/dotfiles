@@ -21,6 +21,12 @@ return {
 				try_node_modules = true,
 			}
 		end
+		local gofumpt = function(parser)
+			return {
+				exe = "gofumpt",
+				stdin = true,
+			}
+		end
 
 		-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 		require("formatter").setup({
@@ -44,6 +50,7 @@ return {
 				yml = { prettier },
 				vue = { prettier },
 				svelte = { prettier },
+				go = { gofumpt },
 
 				-- Use the special "*" filetype for defining formatter configurations on
 				-- any filetype

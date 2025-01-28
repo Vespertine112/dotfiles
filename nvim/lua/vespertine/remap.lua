@@ -46,3 +46,6 @@ vim.keymap.set("i", "<C-Right>", "<Esc>ea")
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 vim.keymap.set("i", "<C-H>", "<C-o>db")
 vim.keymap.set("i", "<C-BS>", "<C-o>db")
+
+-- Disable ';'
+vim.keymap.set("n", ";", "<Nop>")
