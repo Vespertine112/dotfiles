@@ -49,3 +49,8 @@ vim.keymap.set("i", "<C-BS>", "<C-o>db")
 
 -- Disable ';'
 vim.keymap.set("n", ";", "<Nop>")
+
+-- Enable line diagnostics for errors
+vim.keymap.set("n", "<leader>e", function()
+	vim.diagnostic.open_float(0, { scope = "line" })
+end)
