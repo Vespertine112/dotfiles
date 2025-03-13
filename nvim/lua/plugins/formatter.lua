@@ -10,14 +10,21 @@ return {
 				exe = "prettier",
 				args = {
 					"--tab-width 4",
-					"--print-width 120",
+					"--print-width 180",
 					"--stdin-filepath",
+					"--use-tabs",
 					util.escape_path(util.get_current_buffer_file_path()),
 					"--parser",
 					parser,
 				},
 				stdin = true,
 				try_node_modules = true,
+			}
+		end
+		local gofumpt = function(parser)
+			return {
+				exe = "gofumpt",
+				stdin = true,
 			}
 		end
 
@@ -36,13 +43,14 @@ return {
 				json = { prettier },
 				html = { prettier },
 				css = { prettier },
-				scss = {prettier},
+				scss = { prettier },
 				graphql = { prettier },
 				markdown = { prettier },
 				yaml = { prettier },
 				yml = { prettier },
 				vue = { prettier },
 				svelte = { prettier },
+				go = { gofumpt },
 
 				-- Use the special "*" filetype for defining formatter configurations on
 				-- any filetype

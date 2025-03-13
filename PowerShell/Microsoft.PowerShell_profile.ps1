@@ -14,3 +14,5 @@ Enable-TransientPrompt
 
 New-Alias "gs" gitStatus
 New-Alias "lg" lazygit
+
+$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding

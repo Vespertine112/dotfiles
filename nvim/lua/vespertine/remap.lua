@@ -47,4 +47,10 @@ vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 vim.keymap.set("i", "<C-H>", "<C-o>db")
 vim.keymap.set("i", "<C-BS>", "<C-o>db")
 
-vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+-- Disable ';'
+vim.keymap.set("n", ";", "<Nop>")
+
+-- Enable line diagnostics for errors
+vim.keymap.set("n", "<leader>e", function()
+	vim.diagnostic.open_float(0, { scope = "line" })
+end)
