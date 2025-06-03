@@ -42,6 +42,7 @@ return {
 				typescript = { prettier },
 				json = { prettier },
 				html = { prettier },
+				htmlangular = { prettier },
 				css = { prettier },
 				scss = { prettier },
 				graphql = { prettier },
