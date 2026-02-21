@@ -25,6 +25,30 @@ aur_packages=(
 
 	pipewire
 	wireplumber
+
+	# Hyprland
+	hyprland
+	kitty
+	dolphin
+	wofi
+	waybar
+	qt6ct
+	polkit-kde-agent
+	kwallet
+	xdg-desktop-portal-hyprland
+
+	# Waybar / desktop services
+	swaync
+	wlogout
+	blueman
+	bluez
+	bluez-utils
+	pavucontrol
+	nm-connection-editor
+
+	# Media / Audio OSD
+	swayosd
+	playerctl
 )
 
 yay -S --noconfirm $(printf "%s " "${aur_packages[@]}")
@@ -57,5 +81,7 @@ ln -sf ~/Extensible/dotfiles/alacritty/ ~/.config/
 ln -sf ~/Extensible/dotfiles/btop/ ~/.config/
 ln -sf ~/Extensible/dotfiles/starship/starship.toml ~/.config/
 ln -sf ~/Extensible/dotfiles/lazygit/ ~/.config/
-ln -sf ~/Extensible/dotfiles/nvim/ ~/.config
+ln -sf ~/Extensible/dotfiles/nvim/ ~/.config/
+ln -sf ~/Extensible/dotfiles/hypr/ ~/.config/hypr
+ln -sf ~/Extensible/dotfiles/waybar/ ~/.config/waybar
 

@@ -2,30 +2,127 @@
     "layer": "top",
     "position": "top",
     "height": 30,
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces", "mpris"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "cpu", "memory", "clock", "tray"],
+    "modules-right": ["cpu", "memory", "network", "bluetooth", "wireplumber", "clock", "custom/notification", "custom/power", "tray"],
     "reload_style_on_change": true,
 
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
-        "all-outputs": false, 
-		"active-only":false,
-		"persistent-workspaces":{
-			"*":5,
-		},
+        "all-outputs": false,
+        "active-only": false,
+        "persistent-workspaces": {
+            "DP-2": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "DP-3": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        },
         "format-icons": {
-            "active": "",
-            "default": "",
-            "urgent": ""
+            "active": "●",
+            "default": "○",
+            "urgent": "●"
         },
         "on-scroll-up": "hyprctl dispatch split-cycleworkspaces -1",
         "on-scroll-down": "hyprctl dispatch split-cycleworkspaces +1"
     },
 
+    // Shows current media via MPRIS (Spotify, Firefox, mpd, etc.)
+    "mpris": {
+        "player": "playerctld",
+        "format": "{player_icon}  {title} — {artist}",
+        "format-paused": "{player_icon}  {title} — {artist}",
+        "player-icons": {
+            "default": "",
+            "spotify": "",
+            "firefox": "󰈹",
+            "chromium": "󰈹"
+        },
+        "status-icons": {
+            "paused": ""
+        },
+        "max-length": 50,
+        "tooltip": false
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": " {percentage}%",
+        "tooltip-format": "{used:0.1f}G used / {total:0.1f}G total",
+        "interval": 5
+    },
+
+    // Shows WiFi SSID or ethernet interface. Click to open NetworkManager editor.
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀  {ifname}",
+        "format-disconnected": "󰤭  Disconnected",
+        "tooltip-format-wifi": "{signalStrength}% signal · {ipaddr}",
+        "tooltip-format-ethernet": "{ipaddr}",
+        "on-click": "nm-connection-editor"
+    },
+
+    // Click to open Blueman. Shows connected device name when paired.
+    "bluetooth": {
+        "format": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱  {device_alias}",
+        "format-connected-battery": "󰂱  {device_alias}  {device_battery_percentage}%",
+        "tooltip-format": "Bluetooth {status}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "blueman-manager"
+    },
+
+    // Pipewire/Wireplumber volume. Click for pavucontrol, scroll to adjust.
+    "wireplumber": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟  Muted",
+        "format-icons": ["", "", ""],
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+
     "clock": {
-        "format": "{:%H:%M} ",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "format": "  {:%H:%M}",
+        "format-alt": "  {:%A, %B %d, %Y}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click-right": "gnome-calendar"
+    },
+
+    // swaync notification center. Right-click to toggle Do Not Disturb.
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂚",
+            "none": "󰂜",
+            "dnd-notification": "󰂛",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "󰂚",
+            "inhibited-none": "󰂜",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    // Requires wlogout
+    "custom/power": {
+        "format": "⏻",
+        "tooltip-format": "Power menu",
+        "on-click": "wlogout"
+    },
+
+    "tray": {
+        "spacing": 8
     }
 }
