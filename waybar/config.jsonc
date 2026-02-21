@@ -1,0 +1,31 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["network", "cpu", "memory", "clock", "tray"],
+    "reload_style_on_change": true,
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "all-outputs": false, 
+		"active-only":false,
+		"persistent-workspaces":{
+			"*":5,
+		},
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "urgent": ""
+        },
+        "on-scroll-up": "hyprctl dispatch split-cycleworkspaces -1",
+        "on-scroll-down": "hyprctl dispatch split-cycleworkspaces +1"
+    },
+
+    "clock": {
+        "format": "{:%H:%M} ",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    }
+}

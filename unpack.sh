@@ -4,16 +4,15 @@
 
 # Install nessecary AUR packs
 aur_packages=(
-    brave-bin
-    compfy
-    neovim
-    btop
-    alacritty
-    starship
-    zsh
-    npm
-    xclip
-    lazygit
+	brave-bin
+	neovim
+	btop
+	alacritty
+	starship
+	zsh
+	npm
+	pnpm
+	lazygit
 	flameshot
 	tmux
 	nemo
@@ -23,6 +22,9 @@ aur_packages=(
 	nemo
 	obsidian
 	variety
+
+	pipewire
+	wireplumber
 )
 
 yay -S --noconfirm $(printf "%s " "${aur_packages[@]}")
@@ -56,56 +58,4 @@ ln -sf ~/Extensible/dotfiles/btop/ ~/.config/
 ln -sf ~/Extensible/dotfiles/starship/starship.toml ~/.config/
 ln -sf ~/Extensible/dotfiles/lazygit/ ~/.config/
 ln -sf ~/Extensible/dotfiles/nvim/ ~/.config
-ln -sf ~/Extensible/dotfiles/compfy/ ~/.config/
-ln -sf ~/Extensible/dotfiles/X11/.Xresources ~/
-
-# ==== AWESOME INSTALLATION & CONFIG =====
-awesome_config_packages=(
-    awesome-git
-    rofi
-    acpi
-    acpid
-    acpi_call
-    upower
-    lxappearance-gtk3
-    jq
-    inotify-tools
-    polkit-gnome
-    xdotool
-    xclip
-    gpick
-    ffmpeg
-    blueman
-    redshift
-    pipewire
-    pipewire-alsa
-    pipewire-pulse
-    alsa-utils
-    brightnessctl
-    feh
-    maim
-    mpv
-    mpd
-    mpc
-    mpdris2
-    python-mutagen
-    ncmpcpp
-    playerctl
-)
-
-yay -S --noconfirm $(printf "%s " "${awesome_config_packages[@]}")
-
-systemctl --user enable mpd.service
-systemctl --user start mpd.service
-
-git submodule update --init --recursive
-
-# Copies awesomewm & other configs 
-ln -sf ~/Extensible/dotfiles/Boru/config/* ~/.config/ 
-
-sudo cp -r ./Boru/misc/fonts/* /usr/share/fonts/myfonts/
-fc-cache -fv
-
-
-
 
