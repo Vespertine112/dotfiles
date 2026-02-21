@@ -31,13 +31,13 @@ aur_packages=(
 	kitty
 	dolphin
 	wofi
-	waybar
+	eww-git
 	qt6ct
 	polkit-kde-agent
 	kwallet
 	xdg-desktop-portal-hyprland
 
-	# Waybar / desktop services
+	# eww / desktop services
 	swaync
 	wlogout
 	blueman
@@ -45,6 +45,8 @@ aur_packages=(
 	bluez-utils
 	pavucontrol
 	nm-connection-editor
+	socat
+	jq
 
 	# Media / Audio OSD
 	swayosd
@@ -83,5 +85,6 @@ ln -sf ~/Extensible/dotfiles/starship/starship.toml ~/.config/
 ln -sf ~/Extensible/dotfiles/lazygit/ ~/.config/
 ln -sf ~/Extensible/dotfiles/nvim/ ~/.config/
 ln -sf ~/Extensible/dotfiles/hypr/ ~/.config/hypr
-ln -sf ~/Extensible/dotfiles/waybar/ ~/.config/waybar
+ln -sf ~/Extensible/dotfiles/eww/ ~/.config/eww
+chmod +x ~/Extensible/dotfiles/eww/scripts/*.sh
 

@@ -1,0 +1,163 @@
+// ── Global reset ───────────────────────────────────────────
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+// ── Bar window ─────────────────────────────────────────────
+.eww-bar {
+    background: rgba(8, 12, 24, 0.93);
+    color: #c0caf5;
+    border-bottom: 1px solid rgba(100, 140, 230, 0.15);
+}
+
+// ── Layout containers ──────────────────────────────────────
+.modules-left {
+    padding: 0 6px 0 8px;
+}
+
+.modules-center {
+    padding: 0 12px;
+}
+
+.modules-right {
+    padding: 0 8px 0 6px;
+}
+
+// ── Workspaces ─────────────────────────────────────────────
+.workspaces {
+    margin: 5px 6px 5px 0;
+    padding: 0 4px;
+    background: rgba(100, 140, 230, 0.07);
+    border-radius: 8px;
+}
+
+.workspace-btn {
+    padding: 0 7px;
+    color: #2e4070;
+    background: transparent;
+    border-radius: 6px;
+    min-width: 20px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: #89b4fa;
+        background: rgba(100, 140, 230, 0.14);
+    }
+
+    &.occupied {
+        color: #4a6898;
+    }
+
+    &.active {
+        color: #7aa2f7;
+        background: rgba(100, 140, 230, 0.2);
+    }
+}
+
+// ── MPRIS ──────────────────────────────────────────────────
+.mpris {
+    padding: 0 12px;
+    margin: 5px 2px;
+    color: #4a6898;
+    font-style: italic;
+    font-size: 12px;
+
+    &.playing {
+        color: #6d95d8;
+    }
+}
+
+// ── Window title ───────────────────────────────────────────
+.window-title {
+    color: #c0caf5;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+// ── Shared chip style (right-side modules) ─────────────────
+.chip {
+    padding: 0 11px;
+    margin: 5px 2px;
+    background: rgba(100, 140, 230, 0.07);
+    border-radius: 8px;
+    color: #7a9cc8;
+    transition: color 0.2s ease, background 0.2s ease;
+
+    &:hover {
+        color: #b8d0f0;
+        background: rgba(100, 140, 230, 0.15);
+    }
+
+    // CPU & Memory
+    &.cpu,
+    &.mem {
+        color: #5e84b8;
+    }
+
+    // Clock
+    &.clock {
+        color: #7aa2f7;
+        font-weight: bold;
+        letter-spacing: 0.04em;
+
+        &:hover {
+            color: #a5c8ff;
+            background: rgba(100, 140, 230, 0.15);
+        }
+    }
+
+    // Bluetooth connected
+    &.bt-connected {
+        color: #89dceb;
+
+        &:hover {
+            color: #aeeaf5;
+        }
+    }
+
+    // Volume muted
+    &.vol-muted {
+        color: #2d3d58;
+    }
+
+    // Notifications
+    &.notif {
+        font-size: 14px;
+        color: #5a7ab8;
+    }
+
+    // Power button
+    &.power {
+        color: #4a5e82;
+        padding: 0 13px;
+        margin-right: 0;
+
+        &:hover {
+            color: #f7768e;
+            background: rgba(247, 118, 142, 0.13);
+        }
+    }
+}
+
+// ── Network disconnected ────────────────────────────────────
+.chip.net-disconnected {
+    color: #2e3d5a;
+}
+
+// ── Bluetooth off ───────────────────────────────────────────
+.chip.bt-off {
+    color: #253048;
+}
+
+// ── System tray ────────────────────────────────────────────
+.tray {
+    padding: 0 8px;
+    margin: 5px 2px;
+    background: rgba(100, 140, 230, 0.07);
+    border-radius: 8px;
+}
