@@ -1,25 +1,197 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 14px;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
 }
 
+/* ── Bar ──────────────────────────────────────────────── */
 window#waybar {
-    background: rgba(30, 30, 46, 0.9);
-    color: #cdd6f4;
+    background: rgba(8, 12, 24, 0.93);
+    color: #c0caf5;
+    border-bottom: 1px solid rgba(100, 140, 230, 0.15);
+}
+
+/* ── Tooltip ──────────────────────────────────────────── */
+tooltip {
+    background: rgba(12, 18, 38, 0.97);
+    border: 1px solid rgba(100, 140, 230, 0.22);
+    border-radius: 8px;
+    color: #c0caf5;
+}
+
+tooltip label {
+    color: #c0caf5;
+}
+
+/* ── Layout containers ────────────────────────────────── */
+.modules-left {
+    padding: 0 6px 0 8px;
+}
+
+.modules-center {
+    padding: 0 12px;
+}
+
+.modules-right {
+    padding: 0 8px 0 6px;
+}
+
+/* ── Workspaces ───────────────────────────────────────── */
+#workspaces {
+    margin: 5px 6px 5px 0;
+    padding: 0 4px;
+    background: rgba(100, 140, 230, 0.07);
+    border-radius: 8px;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    color: #6c7086;
+    padding: 0 7px;
+    color: #2e4070;
     background: transparent;
-    border: none;
-    border-radius: 0;
+    border-radius: 6px;
+    min-width: 20px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    color: #89b4fa;
+    background: rgba(100, 140, 230, 0.14);
 }
 
 #workspaces button.active {
-    color: #89b4fa;
+    color: #7aa2f7;
+    background: rgba(100, 140, 230, 0.2);
 }
 
 #workspaces button.urgent {
-    color: #f38ba8;
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.12);
+}
+
+/* ── MPRIS ────────────────────────────────────────────── */
+#mpris {
+    padding: 0 12px;
+    margin: 5px 2px;
+    color: #4a6898;
+    font-style: italic;
+    font-size: 12px;
+}
+
+#mpris.playing {
+    color: #6d95d8;
+}
+
+/* ── Window title ─────────────────────────────────────── */
+#window {
+    color: #c0caf5;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+
+/* ── Shared chip style (right-side modules) ───────────── */
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#wireplumber,
+#clock,
+#custom-notification,
+#custom-power,
+#tray {
+    padding: 0 11px;
+    margin: 5px 2px;
+    background: rgba(100, 140, 230, 0.07);
+    border-radius: 8px;
+    color: #7a9cc8;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+/* ── Hover (shared) ───────────────────────────────────── */
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#bluetooth:hover,
+#wireplumber:hover,
+#tray:hover,
+#custom-notification:hover {
+    color: #b8d0f0;
+    background: rgba(100, 140, 230, 0.15);
+}
+
+/* ── Clock ────────────────────────────────────────────── */
+#clock {
+    color: #7aa2f7;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+}
+
+#clock:hover {
+    color: #a5c8ff;
+    background: rgba(100, 140, 230, 0.15);
+}
+
+/* ── CPU & Memory ─────────────────────────────────────── */
+#cpu,
+#memory {
+    color: #5e84b8;
+}
+
+/* ── Network ──────────────────────────────────────────── */
+#network.disconnected {
+    color: #2e3d5a;
+}
+
+/* ── Bluetooth ────────────────────────────────────────── */
+#bluetooth.off {
+    color: #253048;
+}
+
+#bluetooth.connected {
+    color: #89dceb;
+}
+
+#bluetooth.connected:hover {
+    color: #aeeaf5;
+}
+
+/* ── Volume ───────────────────────────────────────────── */
+#wireplumber.muted {
+    color: #2d3d58;
+}
+
+/* ── Notifications ────────────────────────────────────── */
+#custom-notification {
+    font-size: 14px;
+    color: #5a7ab8;
+}
+
+/* ── Power ────────────────────────────────────────────── */
+#custom-power {
+    color: #4a5e82;
+    padding: 0 13px;
+    margin-right: 0;
+}
+
+#custom-power:hover {
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.13);
+}
+
+/* ── Tray ─────────────────────────────────────────────── */
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: rgba(100, 140, 230, 0.18);
+    border-radius: 6px;
 }
