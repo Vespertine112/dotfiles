@@ -95,7 +95,7 @@
 ; ════════════════════════════════════════════════════════════
 
 (defwidget cpu-widget []
-  (box :class "chip"
+  (box :class "chip" :hexpand "false" 
     (label :text "󰻠 ${cpu}%")))
 
 ; ════════════════════════════════════════════════════════════
@@ -103,7 +103,7 @@
 ; ════════════════════════════════════════════════════════════
 
 (defwidget mem-widget []
-  (box :class "chip"
+  (box :class "chip" :hexpand false
     (label :text "󰍛 ${mem}%")))
 
 ; ════════════════════════════════════════════════════════════
@@ -112,8 +112,8 @@
 
 (defwidget network-widget []
   (eventbox
-    :onclick "nm-connection-editor"
-    (box :class "chip"
+    :onclick "nm-connection-editor &"
+    (box :class "chip" :hexpand false
       (label :text {
         network.type == "wifi"       ? "󰤨 ${network.name}" :
         network.type == "ethernet"   ? "󰈀 ${network.name}" :
@@ -126,7 +126,7 @@
 
 (defwidget bluetooth-widget []
   (eventbox
-    :onclick "blueman-manager"
+    :onclick "blueman-manager &"
     (box :class {bluetooth.status == "connected" ? "chip bt-connected" : "chip"}
       (label :text {
         bluetooth.status == "off"       ? "󰂲" :
@@ -140,7 +140,7 @@
 
 (defwidget volume-widget []
   (eventbox
-    :onclick "pavucontrol"
+    :onclick "pavucontrol &"
     :onscroll "scripts/volume-scroll.sh {}"
     (box :class {volume.muted ? "chip vol-muted" : "chip"}
       (label :text {
@@ -157,7 +157,7 @@
 (defwidget clock-widget []
   (eventbox
     :onclick "eww update clock-show-date=${!clock-show-date}"
-    :onrightclick "gnome-calendar"
+    :onrightclick "gnome-calendar &"
     (box :class "chip clock"
       (label :text {clock-show-date ? "󰥔 ${clock-date}" : "󰥔 ${clock-time}"}))))
 
@@ -182,7 +182,7 @@
 
 (defwidget power-widget []
   (eventbox
-    :onclick "wlogout"
+    :onclick "wlogout &"
     (box :class "chip power"
       (label :text "󰐥"))))
 
@@ -191,16 +191,15 @@
 ; ════════════════════════════════════════════════════════════
 
 (defwidget bar [workspaces]
-  (centerbox :orientation "h" :class "bar-inner"
-    ; Left: workspaces + media
-    (box :halign "start" :class "modules-left" :spacing 4
+(centerbox :orientation "h" :class "bar-inner"
+  (box :halign "start" :class "modules-left" :spacing 4 :space-evenly false
       (workspaces-widget :workspaces workspaces)
       (mpris-widget))
     ; Center: active window title
-    (box :halign "center" :class "modules-center"
+    (box :halign "center"  :class "modules-center"
       (window-widget))
     ; Right: system chips + tray
-    (box :halign "end" :class "modules-right" :spacing 2
+    (box :halign "end" :class "modules-right" :spacing 2 :space-evenly false
       (cpu-widget)
       (mem-widget)
       (network-widget)

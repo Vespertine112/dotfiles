@@ -8,8 +8,8 @@ NUM_WORKSPACES=10
 get_workspaces() {
     local mon_index active occupied
     # Get monitor index and active workspace ID
-    mon_index=$(hyprctl -j monitors 2>/dev/null | jq --arg mon "$MONITOR" '[.[] | .name] | to_entries | .[] | select(.value == $mon) | .key')
-    active=$(hyprctl -j monitors 2>/dev/null | jq --arg mon "$MONITOR" '.[] | select(.name == $mon) | .activeWorkspace.id // 0')
+    mon_index=$(hyprctl -j monitors 2>/dev/null | jq --arg mon "$MONITOR" '.[] | {name:.name,id:.id} | select(.name == $mon) | .id')
+    active=$(hyprctl -j monitors 2>/dev/null | jq --arg mon "$MONITOR" '.[] | {name:.name,id:.id, aw: .activeWorkspace.id} | select(.name == $mon) | .aw')
     # Get list of occupied workspace IDs on this monitor
     occupied=$(hyprctl -j workspaces 2>/dev/null | jq --arg mon "$MONITOR" '[.[] | select(.monitor == $mon) | .id]')
 
@@ -20,7 +20,7 @@ get_workspaces() {
           --argjson occupied "${occupied:-[]}" \
           --argjson offset "$offset" \
           --argjson num "$NUM_WORKSPACES" \
-    '[range(1; $num + 1) | . + $offset | {id: ., name: (. - $offset | tostring), active: (. == $active), occupied: (. as $id | $occupied | index($id) != null)}]'
+	-c '[range(1; $num + 1) | . + $offset | {id: ., name: (. - $offset | tostring), active: (. == $active), occupied: (. as $id | $occupied | index($id) != null)}]'
 }
 
 get_workspaces
