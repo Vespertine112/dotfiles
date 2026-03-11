@@ -41,6 +41,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/nvm/init-nvm.sh
 source $ZSH/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
 # User configuration
