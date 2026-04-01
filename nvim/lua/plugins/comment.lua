@@ -13,17 +13,16 @@ return {
     lazy = false,
     config = function()
         require("Comment").setup({
-            -- Remove toggler opts; we handle keymaps manually below
-            opleader = { block = "gb" },
+            -- Disable default keymaps; we define our own below
+            mappings = { basic = false, extra = false },
         })
 
-        local api = require("Comment.api")
-
         -- Normal mode: toggle current line
-        -- <C-_> = what Mac/Linux terminals send for Ctrl+/
-        -- <C-/> = what Windows/kitty-protocol terminals send
-        vim.keymap.set("n", "<C-_>", api.toggle.linewise.current, { desc = "Toggle comment" })
-        vim.keymap.set("n", "<C-/>", api.toggle.linewise.current, { desc = "Toggle comment" })
+        vim.keymap.set("n", "<C-_>", "<Plug>(comment_toggle_linewise_current)", { desc = "Toggle comment" })
+        vim.keymap.set("n", "<C-/>", "<Plug>(comment_toggle_linewise_current)", { desc = "Toggle comment" })
 
+        -- Visual mode: toggle selected lines
+        vim.keymap.set("x", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", { desc = "Toggle comment" })
+        vim.keymap.set("x", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", { desc = "Toggle comment" })
     end,
 }

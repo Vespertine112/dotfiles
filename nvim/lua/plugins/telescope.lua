@@ -1,21 +1,37 @@
 return {
-	'nvim-telescope/telescope.nvim',
-	tag = '0.1.5',
-	dependencies = { 'nvim-lua/plenary.nvim' },
+	"nvim-telescope/telescope.nvim",
+	tag = "0.1.5",
+	dependencies = { "nvim-lua/plenary.nvim" },
 	keys = {
-		{ '<leader>ff', '<cmd>Telescope find_files<cr>', desc = "Find Files" },
-        { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = "Live Grep" },
-        { '<leader>fb', '<cmd>Telescope buffers<cr>', desc = "Buffers" },
-		{ '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = "Help Tags" },
+		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+		{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
 		{
-			'<leader>ps',
-			function ()
-			local ts = require("telescope.builtin")
-				ts.grep_string({ search = vim.fn.input("Grep > ")})
+			"<leader>ps",
+			function()
+				local ts = require("telescope.builtin")
+				ts.grep_string({ search = vim.fn.input("Grep > ") })
 			end,
-			desc = "Grep String"
-		}
+			desc = "Grep String",
+		},
 	},
-}
+	config = function()
+		local telescope = require("telescope")
+		local actions = require("telescope.actions")
 
+		telescope.setup({
+			defaults = {
+				mappings = {
+					i = {
+						["<C-o>"] = actions.send_selected_to_qflist + actions.open_qflist,
+					},
+					n = {
+						["<C-o>"] = actions.send_selected_to_qflist + actions.open_qflist,
+					},
+				},
+			},
+		})
+	end,
+}
 

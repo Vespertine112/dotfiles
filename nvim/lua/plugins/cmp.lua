@@ -27,7 +27,7 @@ return {
 
 		cmp.setup({
 			formatting = {
-				fields = { "abbr", "kind", "menu" },
+				fields = { "abbr", "kind", "icon", "menu" },
 				format = require("lspkind").cmp_format({
 					mode = "symbol", -- show only symbol annotations
 					maxwidth = 50, -- Max before truncation
