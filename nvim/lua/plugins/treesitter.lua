@@ -1,34 +1,38 @@
--- Treesitter config. Add languages below for indent & highlighting support
+-- Treesitter: new API (Neovim 0.12+), with auto-install on file open.
 local M = {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "main",
+	lazy = false,
+	build = ":TSUpdate",
 	config = function()
-		local configs = require("nvim-treesitter.configs")
+		local ts = require("nvim-treesitter")
 
-		configs.setup({
-			ensure_installed = {
-				"c",
-				"lua",
-				"vim",
-				"vimdoc",
-				"query",
-				"elixir",
-				"heex",
-				"typescript",
-				"javascript",
-				"html",
-				"svelte",
-			},
-			sync_install = false,
-			highlight = { enable = true },
-			indent = { enable = disable },
+		-- Eagerly installed languages (never block on first open).
+		ts.install({
+			"c", "lua", "vim", "vimdoc", "query",
+			"elixir", "heex",
+			"typescript", "javascript", "html", "svelte",
+		})
 
-			auto_install = true,
+		-- Auto-install parser + start highlighting for any filetype.
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(args)
+				local ft = args.match
+				local lang = vim.treesitter.language.get_lang(ft) or ft
+
+				-- Parser already present -> just start highlighting.
+				if pcall(vim.treesitter.start, args.buf, lang) then
+					return
+				end
+
+				-- Otherwise install it, then start.
+				local ok, task = pcall(ts.install, { lang })
+				if ok and task then
+					task:wait(30000)
+					pcall(vim.treesitter.start, args.buf, lang)
+				end
+			end,
 		})
 	end,
-	build = function()
-		require("nvim-treesitter.install").compilers = { "zig", "clang" }
-		require("nvim-treesitter.install").update({ with_sync = true })()
-	end,
 }
-
 return { M }
