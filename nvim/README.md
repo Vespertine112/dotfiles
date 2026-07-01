@@ -73,7 +73,6 @@ NVIM_APPNAME=Vespertine112/dotfiles/nvim nvim
 -   [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
 -   [smjonas/inc-rename.nvim](https://dotfyle.com/plugins/smjonas/inc-rename.nvim)
 -   [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
--   [VonHeikemen/lsp-zero.nvim](https://dotfyle.com/plugins/VonHeikemen/lsp-zero.nvim)
 
 ### lsp-installer
 
@@ -83,10 +82,6 @@ NVIM_APPNAME=Vespertine112/dotfiles/nvim nvim
 
 -   [ThePrimeagen/harpoon](https://dotfyle.com/plugins/ThePrimeagen/harpoon)
 
-### media
-
--   [edluffy/hologram.nvim](https://dotfyle.com/plugins/edluffy/hologram.nvim)
-
 ### motion
 
 -   [folke/flash.nvim](https://dotfyle.com/plugins/folke/flash.nvim)
@@ -95,15 +90,11 @@ NVIM_APPNAME=Vespertine112/dotfiles/nvim nvim
 
 -   [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
 -   [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
--   [folke/neodev.nvim](https://dotfyle.com/plugins/folke/neodev.nvim)
+-   [folke/lazydev.nvim](https://dotfyle.com/plugins/folke/lazydev.nvim)
 
 ### plugin-manager
 
 -   [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
-
-### scrollbar
-
--   [gorbit99/codewindow.nvim](https://dotfyle.com/plugins/gorbit99/codewindow.nvim)
 
 ### scrolling
 

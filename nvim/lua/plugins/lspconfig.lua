@@ -1,5 +1,5 @@
 -- Provide quick start configs for NVIM LSP
--- Essentialy Lsps managed by mason will be automatically setup with quickstart
+-- LSPs installed via mason are automatically enabled via mason-lspconfig
 return {
 	"neovim/nvim-lspconfig",
 	cmd = { "LspInfo", "LspInstall", "LspStart" },
@@ -10,37 +10,38 @@ return {
 		{ "williamboman/mason-lspconfig.nvim" },
 	},
 	config = function()
-		local lsp_zero = require("lsp-zero")
-		lsp_zero.extend_lspconfig()
+		vim.lsp.config("*", {
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		})
 
-		lsp_zero.on_attach(function(client, bufnr)
-			lsp_zero.default_keymaps({ buffer = bufnr })
-			vim.keymap.set("n", "<leader>ca", function()
-				vim.lsp.buf.code_action()
-			end, { desc = "Lsp Code Actions" })
-			vim.keymap.set("n", "<leader>fr", function()
-				vim.lsp.buf.references()
-			end, { desc = "Lsp Find References" })
-		end)
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "✘",
+					[vim.diagnostic.severity.WARN] = "▲",
+					[vim.diagnostic.severity.HINT] = "⚑",
+					[vim.diagnostic.severity.INFO] = "»",
+				},
+			},
+		})
 
-		lsp_zero.set_sign_icons({
-			error = "✘",
-			warn = "▲",
-			hint = "⚑",
-			info = "»",
+		vim.api.nvim_create_autocmd("LspAttach", {
+			callback = function(args)
+				local opts = { buffer = args.buf }
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = args.buf, desc = "Lsp Code Actions" })
+				vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references, { buffer = args.buf, desc = "Lsp Find References" })
+			end,
 		})
 
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
 			ensure_installed = {},
-			handlers = {
-				lsp_zero.default_setup,
-				lua_ls = function()
-					-- (Optional) Configure lua language server for neovim
-					local lua_opts = lsp_zero.nvim_lua_ls()
-					require("lspconfig").lua_ls.setup(lua_opts)
-				end,
-			},
+			automatic_enable = true,
 		})
 	end,
 }

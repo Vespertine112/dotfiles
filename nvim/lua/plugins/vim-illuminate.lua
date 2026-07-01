@@ -13,8 +13,6 @@ return {
 			"alpha",
 			"dashboard",
 			"neo-tree",
-			"Trouble",
-			"trouble",
 			"lazy",
 			"mason",
 			"notify",
