@@ -25,6 +25,11 @@ local M = {
 					return
 				end
 
+				-- No parser exists for this filetype (e.g. "notify" popups) -> nothing to do.
+				if not require("nvim-treesitter.parsers")[lang] then
+					return
+				end
+
 				-- Otherwise install it, then start.
 				local ok, task = pcall(ts.install, { lang })
 				if ok and task then
