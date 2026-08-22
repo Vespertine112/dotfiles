@@ -68,7 +68,7 @@ export LANG=en_US.UTF-8
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
-alias py="python3"
+alias py="python3.11"
 alias rofi="/home/vespertine/.config/rofi/scripts/launcher_t6"
 alias hiber="systemctl hibernate"
 alias lg="lazygit"
