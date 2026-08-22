@@ -116,6 +116,12 @@ zle-line-init() {
 
 zle -N zle-line-init
 
+wt-switch() {
+  local dir
+  dir=$(git worktree list | fzf | awk '{print $1}')
+  [ -n "$dir" ] && cd "$dir"
+}
+
 # Fix default standard for c++ & set makeflags to compile on all cores
 export CXXFLAGS="-std=c++20"
 export MAKEFLAGS="-j$(nproc)"

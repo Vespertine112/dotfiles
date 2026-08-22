@@ -8,6 +8,6 @@ gui:
       - underline
   nerdFontsVersion: "3"
 git:
-  pagers:
+  diffRenderers:
     - colorArg: never
-      pager: delta --paging=never
+      command: delta --paging=never

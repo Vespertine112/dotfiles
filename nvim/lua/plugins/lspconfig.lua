@@ -43,5 +43,20 @@ return {
 			ensure_installed = {},
 			automatic_enable = true,
 		})
+
+		-- qmlls: use the system binary instead of mason's, so the language
+		-- server is built against the same Qt as your local projects. Mason's
+		-- qmlls ships its own Qt build; a mismatch against the Qt your QML
+		-- imports resolve against causes errors on built projects.
+		local qmlls = vim.fn.exepath("qmlls6")
+		if qmlls == "" then
+			qmlls = vim.fn.exepath("qmlls")
+		end
+		if qmlls ~= "" then
+			vim.lsp.config("qmlls", {
+				cmd = { qmlls, "-E" }, -- -E: resolve modules via QML_IMPORT_PATH
+			})
+			vim.lsp.enable("qmlls")
+		end
 	end,
 }
