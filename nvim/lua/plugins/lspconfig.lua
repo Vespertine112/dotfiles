@@ -33,6 +33,7 @@ return {
 				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+				vim.keymap.set("n", "<F2>", ":IncRename ", { buffer = args.buf, desc = "Lsp Rename (inc-rename)" })
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = args.buf, desc = "Lsp Code Actions" })
 				vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references, { buffer = args.buf, desc = "Lsp Find References" })
 			end,
