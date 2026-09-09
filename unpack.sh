@@ -85,6 +85,7 @@ ln -sf ~/Extensible/dotfiles/starship/starship.toml ~/.config/
 ln -sf ~/Extensible/dotfiles/lazygit/ ~/.config/
 ln -sf ~/Extensible/dotfiles/nvim/ ~/.config/
 ln -sf ~/Extensible/dotfiles/hypr/ ~/.config/hypr
+ln -sf ~/Extensible/dotfiles/wofi/ ~/.config/wofi
 ln -sf ~/Extensible/dotfiles/eww/ ~/.config/eww
 chmod +x ~/Extensible/dotfiles/eww/scripts/*.sh
 
