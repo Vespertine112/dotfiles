@@ -4,7 +4,7 @@
 
 Run `unpack.sh` on a fresh Arch install to handle package installs, font setup, Oh-My-Zsh, and symlinking.
 
-> **Note:** The unpack script does not yet handle Hyprland or Waybar symlinks — do those manually (see below).
+> **Note:** The unpack script does not yet handle the Hyprland symlink — do that manually (see below). The eww symlink and script permissions are handled automatically.
 
 ---
 
@@ -21,22 +21,24 @@ hyprland
 kitty                       # terminal
 dolphin                     # file manager
 wofi                        # app launcher
-waybar                      # status bar
+eww-git                     # status bar (builds from source via AUR)
 qt6ct                       # Qt6 theming
 polkit-kde-agent            # auth agent (/usr/lib/polkit-kde-authentication-agent-1)
 kwallet                     # kwalletd6 for credential storage
 xdg-desktop-portal-hyprland # screen sharing / portals
-swaync                      # notification daemon + waybar bell
-wlogout                     # power menu (waybar power button)
+swaync                      # notification daemon + eww bell
+wlogout                     # power menu (eww power button)
 swayosd                     # volume/caps-lock OSD pop-ups
-playerctl                   # media key control (play/pause/next/prev)
-blueman                     # bluetooth GUI (waybar bluetooth click)
+playerctl                   # media key control + MPRIS metadata for eww
+blueman                     # bluetooth GUI (eww bluetooth click)
 bluez                       # bluetooth stack
 bluez-utils                 # bluetooth CLI tools
-pavucontrol                 # audio mixer GUI (waybar volume click)
-nm-connection-editor        # network manager GUI (waybar network click)
+pavucontrol                 # audio mixer GUI (eww volume click)
+nm-connection-editor        # network manager GUI (eww network click)
 pipewire                    # audio server
 wireplumber                 # pipewire session manager
+socat                       # Hyprland IPC socket listener (eww scripts)
+jq                          # JSON parsing in eww scripts
 ```
 
 ### Plugins (via hyprpm)
@@ -86,11 +88,44 @@ Modifier key: **Alt** (`MOD1`)
 
 ---
 
-## Waybar
+## eww (status bar)
 
-Config at `waybar/config.jsonc`, styles at `waybar/style.css`.
+[eww](https://github.com/elkowar/eww) (Elkowar's Wacky Widgets) is a flexible widget system used here as the status bar. Unlike Waybar, eww drives all data from shell scripts, which enables features like native image rendering — used for album art display.
 
-Symlink: `ln -sf ~/Extensible/dotfiles/waybar/ ~/.config/waybar`
+Config at `eww/eww.yuck` (layout + data), `eww/eww.scss` (styles), `eww/scripts/` (data scripts).
+
+Symlink (handled by `unpack.sh`):
+```sh
+ln -sf ~/Extensible/dotfiles/eww/ ~/.config/eww
+chmod +x ~/.config/eww/scripts/*.sh
+```
+
+Start manually (Hyprland launches both bars automatically via `exec-once`):
+```sh
+eww open bar-dp2   # bar on DP-2 (workspaces 1–10)
+eww open bar-dp3   # bar on DP-3 (workspaces 11–20)
+```
+
+Kill: `pkill eww`
+
+### Scripts
+
+| Script | Purpose |
+|---|---|
+| `scripts/workspaces.sh [MONITOR]` | Hyprland workspace state (socat IPC listener) |
+| `scripts/window.sh` | Active window title (socat IPC listener) |
+| `scripts/mpris.sh` | MPRIS track/artist (playerctl -F) |
+| `scripts/cpu.sh` | CPU usage % |
+| `scripts/memory.sh` | RAM usage % |
+| `scripts/network.sh` | WiFi/ethernet/disconnected state |
+| `scripts/bluetooth.sh` | Bluetooth on/off/connected state |
+| `scripts/volume.sh` | Volume level + mute (pactl subscriber) |
+| `scripts/volume-scroll.sh [up\|down]` | Adjust volume via scroll |
+| `scripts/notifications.sh` | swaync notification count + DND state |
+
+### Album art (future)
+
+eww's `(image :path "..." :image-width N)` widget can display album art natively. The groundwork is in place — add an `mpris-art` deflisten script that caches artwork from `playerctl metadata mpris:artUrl`, then drop an `(image)` into the `mpris-widget`.
 
 ---
 

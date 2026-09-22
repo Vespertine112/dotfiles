@@ -25,7 +25,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Quick fix navigations
 vim.keymap.set("n", "<C-;>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>;", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -42,7 +41,7 @@ vim.keymap.set("v", "<C-Right>", "e")
 vim.keymap.set("v", "<C-Left>", "b")
 vim.keymap.set("i", "<C-Right>", "<Esc>ea")
 
--- Word Deletes baby! Good ref: https://stackoverflow.com/questions/1373841/vim-deleting-backward-tricks
+-- Word Deletes, baby! Good ref: https://stackoverflow.com/questions/1373841/vim-deleting-backward-tricks
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 vim.keymap.set("i", "<C-H>", "<C-o>db")
 vim.keymap.set("i", "<C-BS>", "<C-o>db")

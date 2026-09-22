@@ -41,6 +41,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/nvm/init-nvm.sh
 source $ZSH/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
 # User configuration
@@ -69,7 +70,7 @@ export LANG=en_US.UTF-8
 alias zshconfig="code ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
 alias py="python3.11"
-alias rofi="/home/vespertine/.config/rofi/scripts/launcher_t6"
+# alias rofi="/home/vespertine/.config/rofi/scripts/launcher_t6"
 alias hiber="systemctl hibernate"
 alias lg="lazygit"
 alias fman="compgen -c | fzf | xargs man"
@@ -114,6 +115,12 @@ zle-line-init() {
 }
 
 zle -N zle-line-init
+
+wt-switch() {
+  local dir
+  dir=$(git worktree list | fzf | awk '{print $1}')
+  [ -n "$dir" ] && cd "$dir"
+}
 
 # Fix default standard for c++ & set makeflags to compile on all cores
 export CXXFLAGS="-std=c++20"

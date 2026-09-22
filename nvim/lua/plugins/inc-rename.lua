@@ -1,9 +1,10 @@
 return {
     "smjonas/inc-rename.nvim",
+    cmd = "IncRename",
     config = function()
         require("inc_rename").setup(
             {
-                cmd_name = "IncRename ", -- the name of the command
+                cmd_name = "IncRename", -- the name of the command
                 hl_group = "Substitute", -- the highlight group used for highlighting the identifier's new name
                 preview_empty_name = false, -- whether an empty new name should be previewed; if false the command preview will be cancelled instead
                 show_message = true, -- whether to display a `Renamed m instances in n files` message after a rename operation
@@ -13,6 +14,6 @@ return {
         )
     end,
     keys = {
-        {"<leader>rn", ":Inc ", desc = "Incremental Rename"}
+        {"<leader>rn", ":IncRename ", desc = "Incremental Rename"}
     }
 }

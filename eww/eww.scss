@@ -1,0 +1,208 @@
+// ╔══════════════════════════════════════════════════════════╗
+// ║                    NEON BLUE-GREEN PALETTE               ║
+// ╠══════════════════════════════════════════════════════════╣
+// ║  Backgrounds                                             ║
+// ║    Abyss      #0f1e22   Deepest bg                       ║
+// ║    Void       #192a2e   Surface (windows, bar)           ║
+// ║    Slate      #1e3338   Elevated surface                  ║
+// ║    Haze       #2c4850   Subtle border / separator        ║
+// ║                                                          ║
+// ║  Foregrounds                                             ║
+// ║    Frost      #dff2f5   Primary text                     ║
+// ║    Mist       #8dbec7   Dimmed text                      ║
+// ║    Fog        #507e88   Disabled / inactive              ║
+// ║                                                          ║
+// ║  Neon Accents                                            ║
+// ║    Neon Cyan  #00f5d4   Primary accent                   ║
+// ║    Plasma     #00cfff   Secondary accent                 ║
+// ║    Electric   #05ffa1   Tertiary / hover                 ║
+// ║    Deep Glow  #003d4a   Glow / shadow color              ║
+// ║                                                          ║
+// ║  Semantic                                                ║
+// ║    Success    #39ff85   Neon Green                       ║
+// ║    Warning    #ffcc00   Amber                            ║
+// ║    Error      #ff4f6b   Hot Coral                        ║
+// ║    Info       #a78bfa   Hyper Violet                     ║
+// ╚══════════════════════════════════════════════════════════╝
+
+// ── Global reset ───────────────────────────────────────────
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+    color: #dff2f5; // Frost
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+// ── Window background ──────────────────────────────────────
+window {
+    background: transparent;
+}
+
+// ── Bar inner container ────────────────────────────────────
+.bar-inner {
+    border-radius: 8px;
+    border: 1px solid #2c4850; // Haze
+    margin: 12px 12px 0 12px;
+    background: #192a2e; // Void
+}
+
+// ── Bar window ─────────────────────────────────────────────
+.eww-bar {
+    background: rgba(15, 30, 34, 0.93); // Abyss
+    border-bottom: 1px solid rgba(0, 245, 212, 0.1); // Neon Cyan tint
+    border-radius: 12px;
+}
+
+// ── Layout containers ──────────────────────────────────────
+.modules-left {
+    padding: 0 6px 0 8px;
+}
+
+.modules-center {
+    padding: 0 12px;
+}
+
+.modules-right {
+    padding: 0 8px 0 6px;
+}
+
+// ── Workspaces ─────────────────────────────────────────────
+.workspaces {
+    margin: 5px 6px 5px 0;
+    padding: 0 4px;
+    background: rgba(0, 245, 212, 0.05); // Neon Cyan tint
+    border-radius: 8px;
+}
+
+.workspace-btn {
+    padding: 0 2px;
+    color: #507e88; // Fog
+    background: transparent;
+    border-radius: 6px;
+    min-width: 20px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: #00cfff; // Plasma Blue
+        background: rgba(0, 207, 255, 0.1);
+    }
+
+    &.occupied {
+        color: #8dbec7; // Mist
+    }
+
+    &.active {
+        color: #00f5d4; // Neon Cyan
+        background: rgba(0, 61, 74, 0.6); // Deep Glow
+        text-shadow: 0 0 8px rgba(0, 245, 212, 0.6);
+    }
+}
+
+// ── MPRIS ──────────────────────────────────────────────────
+.mpris {
+    padding: 0 12px;
+    margin: 5px 2px;
+    color: #507e88; // Fog
+    font-style: italic;
+    font-size: 12px;
+
+    &.playing {
+        color: #05ffa1; // Electric Teal
+        font-weight: bold;
+        text-shadow: 0 0 6px rgba(5, 255, 161, 0.4);
+    }
+}
+
+// ── Window title ───────────────────────────────────────────
+.window-title {
+    color: #dff2f5; // Frost
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+// ── Shared chip style (right-side modules) ─────────────────
+.chip {
+    padding: 0 16px;
+    margin: 4px 2px;
+    background: rgba(30, 51, 56, 0.8); // Slate
+    border-radius: 8px;
+    color: #8dbec7; // Mist
+    transition: color 0.2s ease, background 0.2s ease;
+
+    &:hover {
+        color: #dff2f5; // Frost
+        background: rgba(44, 72, 80, 0.9); // Haze
+    }
+
+    // Clock
+    &.clock {
+        color: #00cfff; // Plasma Blue
+        font-weight: bold;
+        letter-spacing: 0.04em;
+
+        &:hover {
+            color: #dff2f5; // Frost
+            background: rgba(0, 207, 255, 0.1);
+            text-shadow: 0 0 8px rgba(0, 207, 255, 0.4);
+        }
+    }
+
+    // Bluetooth connected
+    &.bt-connected {
+        color: #00f5d4; // Neon Cyan
+        text-shadow: 0 0 6px rgba(0, 245, 212, 0.4);
+
+        &:hover {
+            color: #05ffa1; // Electric Teal
+        }
+    }
+
+    // Volume muted
+    &.vol-muted {
+        color: #507e88; // Fog
+    }
+
+    // Notifications
+    &.notif {
+        font-size: 14px;
+        color: #a78bfa; // Hyper Violet
+
+        &:hover {
+            color: #c4b0fd;
+            background: rgba(167, 139, 250, 0.1);
+        }
+    }
+
+    // Power button
+    &.power {
+        color: #507e88; // Fog
+        padding: 0 13px;
+        margin-right: 0;
+
+        &:hover {
+            color: #ff4f6b; // Hot Coral
+            background: rgba(255, 79, 107, 0.13);
+        }
+    }
+}
+
+// ── Network disconnected ────────────────────────────────────
+.chip.net-disconnected {
+    color: #507e88; // Fog
+}
+
+// ── Bluetooth off ───────────────────────────────────────────
+.chip.bt-off {
+    color: #507e88; // Fog
+}
+
+// ── System tray ────────────────────────────────────────────
+.tray {
+    padding: 0 8px;
+    margin: 5px 2px;
+    background: rgba(30, 51, 56, 0.8); // Slate
+    border-radius: 8px;
+}
